@@ -113,7 +113,9 @@ let s:is_dark=(&background == 'dark')
 let s:gb = {}
 
 if s:is_dark
-	let s:gb.dark0  = ['282828', 235]     " 40-40-40
+	" The background color
+	let s:gb.dark0  = ['1f1f1f', 235]     " 40-40-40
+
 	let s:gb.dark1  = ['3c3836', 237]     " 60-56-54
 	let s:gb.dark2  = ['504945', 239]     " 80-73-69
 	let s:gb.dark3  = ['665c54', 241]     " 102-92-84
@@ -121,8 +123,8 @@ if s:is_dark
 
 	let s:gb.medium = ['928374', 245]     " 146-131-116
 
-	let s:gb.light0 = ['fdf4c1', 229]     " 253-244-193
-	let s:gb.light1 = ['ebdbb2', 223]     " 235-219-178
+	let s:gb.light0 = ['d5c4a1', 229]     " 253-244-193
+	let s:gb.light1 = ['d5c4a1', 223]     " 235-219-178
 	let s:gb.light2 = ['d5c4a1', 250]     " 213-196-161
 	let s:gb.light3 = ['bdae93', 248]     " 189-174-147
 	let s:gb.light4 = ['a89984', 246]     " 168-153-132
@@ -130,9 +132,9 @@ if s:is_dark
 	let s:gb.light4_256 = ['a89984', 246] " 168-153-132
 
 	let s:gb.red    = ['fb4934', 167]     " 251-73-52
-	let s:gb.green  = ['b8bb26', 142]     " 184-187-38
+	let s:gb.green  = ['ABC78B', 142]     " 184-187-38
 	let s:gb.yellow = ['fabd2f', 214]     " 250-189-47
-	let s:gb.blue   = ['83a598', 109]     " 131-165-152
+	let s:gb.blue   = ['9BB2A5', 109]     " 131-165-152
 	let s:gb.purple = ['d3869b', 175]     " 211-134-155
 	let s:gb.aqua   = ['8ec07c', 108]     " 142-192-124
 	let s:gb.orange = ['fe8019', 208]     " 254-128-25
@@ -453,7 +455,7 @@ call s:HL('lCursor', 'none', 'none', 'inverse')
 " Syntax Highlighting: {{{
 
 if g:gruvbox_improved_strings == 0
-	call s:HL('Special', 'orange')
+	call s:HL('Special', 'light4')
 else
 	call s:HL('Special', 'dark1', 'orange', 'italic')
 endif
@@ -467,24 +469,24 @@ call s:HL('Todo', 'fg', 'bg', 'bold')
 call s:HL('Error', 'bg', 'red', 'bold')
 
 " Generic statement
-call s:HL('Statement',   'red')
+call s:HL('Statement',   'light3')
 " if, then, else, endif, swicth, etc.
-call s:HL('Conditional', 'red')
+call s:HL('Conditional', 'light3')
 " for, do, while, etc.
-call s:HL('Repeat',      'red')
+call s:HL('Repeat',      'light3')
 " case, default, etc.
-call s:HL('Label',       'red')
+call s:HL('Label',       'light3')
 " try, catch, throw
-call s:HL('Exception',   'red')
+call s:HL('Exception',   'light3')
 " sizeof, "+", "*", etc.
 hi! link Operator Normal
 " Any other keyword
-call s:HL('Keyword',     'red')
+call s:HL('Keyword',     'light3')
 
 " Variable name
-call s:HL('Identifier', 'blue')
+call s:HL('Identifier', 'light3')
 " Function name
-call s:HL('Function',   'green', 'none', 'bold')
+call s:HL('Function',   'light3', 'none', 'bold')
 
 " Generic preprocessor
 call s:HL('PreProc',   'aqua')
@@ -506,7 +508,7 @@ if g:gruvbox_italicize_strings == 0
 	call s:HL('String',  'green')
 else
 	if g:gruvbox_improved_strings == 0
-		call s:HL('String',  'green', 'none', 'italic')
+		call s:HL('String',  'light3', 'none', 'italic')
 	else
 		call s:HL('String',  'dark1', 'light1', 'italic')
 	endif
@@ -816,9 +818,9 @@ if g:gruvbox_italicize_comments == 0
 else
 	call s:HL('vimCommentTitle', 'light4_256', 'none', 'bold,italic')
 endif
-call s:HL('vimNotation', 'orange')
-call s:HL('vimBracket', 'orange')
-call s:HL('vimMapModKey', 'orange')
+call s:HL('vimNotation', 'light3')
+call s:HL('vimBracket', 'light3')
+call s:HL('vimMapModKey', 'light3')
 call s:HL('vimFuncSID', 'light3')
 call s:HL('vimSetSep', 'light3')
 call s:HL('vimSep', 'light3')
@@ -863,19 +865,24 @@ call s:HL('cStructure', 'orange')
 " }}}
 " Python: {{{
 
-call s:HL('pythonBuiltin', 'orange')
-call s:HL('pythonBuiltinObj', 'orange')
-call s:HL('pythonBuiltinFunc', 'orange')
-call s:HL('pythonFunction', 'aqua')
-call s:HL('pythonDecorator', 'red')
-call s:HL('pythonInclude', 'blue')
-call s:HL('pythonImport', 'blue')
-call s:HL('pythonRun', 'blue')
-call s:HL('pythonCoding', 'blue')
-call s:HL('pythonOperator', 'red')
-call s:HL('pythonExceptions', 'purple')
-call s:HL('pythonBoolean', 'purple')
+call s:HL('pythonBuiltin', 'light4')
+call s:HL('pythonBuiltinObj', 'light4')
+call s:HL('pythonBuiltinFunc', 'light4')
+call s:HL('pythonFunction', 'light4')
+call s:HL('pythonDecorator', 'light4')
+call s:HL('pythonInclude', 'light4')
+call s:HL('pythonImport', 'light4')
+call s:HL('pythonRun', 'light4')
+call s:HL('pythonCoding', 'light4')
+call s:HL('pythonOperator', 'light4')
+call s:HL('pythonExceptions', 'light4')
+call s:HL('pythonBoolean', 'light4')
 call s:HL('pythonDot', 'light3')
+call s:HL('pythonStatement', 'light4')
+call s:HL('pythonRepeat', 'light4')
+call s:HL('pythonConditional', 'light4')
+call s:HL('pythonString', 'light1')
+call s:HL('pythonNumber', 'light1')
 
 " }}}
 " CSS: {{{
@@ -923,6 +930,41 @@ call s:HL('javaScriptNumber', 'purple')
 call s:HL('javaScriptNull', 'purple')
 call s:HL('javaScriptParens', 'light3')
 
+call s:HL('javaScriptBoolean', 'light3')
+call s:HL('javaScriptString', 'light2')
+call s:HL('javaScriptStringD', 'light2')
+call s:HL('javaScriptStringS', 'light2')
+call s:HL('javaScriptTemplateString', 'light2')
+call s:HL('javaScriptTemplateDelim', 'light2')
+call s:HL('javaScriptTemplateVar', 'light2')
+
+call s:HL('javaScriptHtmlElemProperties', 'light2')
+call s:HL('javaScriptConsole', 'light3')
+call s:HL('javaScriptDOMObjects', 'light2')
+call s:HL('javaScriptBraces', 'light3')
+call s:HL('javaScriptFunction', 'light3')
+call s:HL('javaScriptIdentifier', 'light3')
+call s:HL('javaScriptMember', 'light3')
+call s:HL('javaScriptNumber', 'aqua')
+call s:HL('javaScriptNull', 'light3')
+call s:HL('javaScriptGlobal', 'light3')
+call s:HL('javaScriptParens', 'light3')
+call s:HL('javaScriptReserved', 'light3')
+call s:HL('javaScriptLabel', 'light3')
+call s:HL('javaScriptStatement', 'light3')
+call s:HL('javaScriptConditional', 'light3')
+call s:HL('javaScriptBranch', 'light3')
+call s:HL('javaScriptReact', 'light3')
+
+" " call s:HL('jsParen', 'blue')
+call s:HL('jsParensError', 'light3')
+" call s:HL('jsBraces', 'light3')
+
+" call s:HL('jsClass', 'red')
+" call s:HL('jsModules', 'red')
+" call s:HL('jsModuleWords', 'red')
+
+" call s:HL('jsFuncCall', 'aqua')
 " }}}
 " CoffeeScript: {{{
 
